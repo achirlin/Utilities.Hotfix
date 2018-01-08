@@ -1,0 +1,78 @@
+Release notes of Hotfix Installation Utility
+
+ιεν ωπι 16 ιεμι 2007 
+16/07/2007
+
+   *	Full backup/rollback of installed components implemented including xml configuration files
+   *    Sparse progress shown in console window.
+   *    Last chance given to stop installation after the utility launched
+   *    Workaround of MS Bug with services start up implemented
+   *	Strict check of available free disk space in case of backup required
+   *	Full automation reached in case of Hot fix 5
+   *    Filtering of backup files added. Default filter of *.log files turned on.
+   *    New processing instruction added of deleting Temporary ASP.NET cached files 1.1 / 2.0 and configurable.
+   *    Added numeric code to each kind of message that may appear in log file.
+   *	Utility still has generic behavior and configuration driven.
+   *    Added numeric code to each kind of message that may appear in log file.
+   *	Added header to log of OS version, machine, domain and user name.
+
+
+
+Detailed description of section of ifnhotfix.xml
+
+   *    Filtering of backuped files added. Default filter of *.log files turned on.
+	
+	Section of ifnhotfix.xml /HotfixSettings/BackupExclusions defines filters
+	as standard OS wildcard filter. Each filter adds complexity of log(n) from entire
+	amount of processed files.
+	<BackupExclusions>
+		<FileFilters>
+			<string>*.log</string>
+			<!-- Example -->
+			<!-- <string>*.tmp</string> -->
+		</FileFilters>
+	</BackupExclusions>
+	Files are fit to one from defined filers set will be excluded from backup.
+
+
+	--------------------------------------------------------------------------------------
+ 
+
+   *    New processing instruction added of deleting Temporary ASP.NET cached files.
+	
+	Immediately after successful installation of components on target machine
+	all files found in:
+		%WINDIR%\Microsoft.NET\Framework\VERSION\
+	will be deleted. Section of ifnhotfix.xml /HotfixSettings/ClearTempFiles
+	<ClearTempFiles doClear="true">
+		<versions>
+			<!-- <string>v1.0.3705</string> --> <!-- NET 1.0 -->
+			     <string>v1.1.4322</string>     <!-- NET 1.1 -->
+			<!-- <string>v2.0.5072</string> --> <!-- NET 2.0 -->
+		</versions>
+	</ClearTempFiles>
+	defines substitution to VERSION in the path that mentioned above. 
+	
+	Each VERSION defined in ClearTempFiles will processed separately.
+	
+	"doClear" attribute defines flag of Turning On - "true" / OFF - "false" the cleaning
+	of temporary ASP.NET files at all. 
+
+
+	--------------------------------------------------------------------------------------
+
+
+  *     Added numeric code to each kind of message that may appear in log file.
+	Like HI001, HI034. Intended to make understanding of tool behavior easily to recognize
+	place in code responsible for this kind of message.
+
+
+	--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+

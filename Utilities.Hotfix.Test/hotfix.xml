@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Last updated 03/09/2007 -->
+<!-- 03/09/2007 Office Integration MSI package will be deployed to \Installations -->
+<!-- 03/09/2007 Web site.Root component added, that contains Resources & TestFormBox.aspx-->
+
+<HotfixSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" description="hot fix 6">
+  <Services>
+	<Service service_name="w3svc" startorder="1" stoporder="1" />
+	<Service service_name="Encryption Provider Service" startorder="2" stoporder="6" />
+	<Service service_name="Permission Manager Provider" startorder="3" stoporder="5" />
+	<Service service_name="Engine 1.1" startorder="4" stoporder="4" />
+	<Service service_name="Assignment Manager Service" startorder="5" stoporder="3" />
+	<Service service_name="Message Router Service" startorder="6" stoporder="2" />
+  </Services>
+  <DestinationRootFolders>
+	<DestinationRootFolder type_name="FSDIR" path="?PROGRAMFILES?" default="true" />
+	<DestinationRootFolder type_name="VIRTUALDIR" path="?HDD?\Inetpub\wwwroot" default="false" />
+  </DestinationRootFolders>
+  <FolderTypes>
+	<FolderType type_name="VIRTUALDIR" folder_hotfix="Web Service" />
+	<FolderType type_name="VIRTUALDIR" folder_hotfix="Admin.Root" />
+	<FolderType type_name="VIRTUALDIR" folder_hotfix="Admin" />
+	<FolderType type_name="VIRTUALDIR" folder_hotfix="Web site.Root" />
+	<FolderType type_name="VIRTUALDIR" folder_hotfix="Web site" />
+  </FolderTypes>
+  <FolderMappings>
+	<FolderMapping folder_hotfix="Web Service" folder_real="WS\bin" />
+	<FolderMapping folder_hotfix="Admin" folder_real="Admin\bin" />
+	<FolderMapping folder_hotfix="Admin.Root" folder_real="Admin" />
+	<FolderMapping folder_hotfix="Web site" folder_real="bin" />
+	<FolderMapping folder_hotfix="Web site.Root" folder_real="" />
+  </FolderMappings>
+  <ExcludeFolders>
+	<ExcludeFolder folder_hotfix="Setup" />
+	<ExcludeFolder folder_hotfix="Database Scripts" />
+  </ExcludeFolders>
+  <XmlFileFixes>
+	<XmlFileFix folder_hotfix="Admin" update="../Setup/Config.Admin.xml" />
+	<XmlFileFix folder_hotfix="Web Service" update="../Setup/Config.Web Service.xml" />
+	<XmlFileFix folder_hotfix="Web site" update="../Setup/Config.Web site.xml" />
+	<XmlFileFix folder_hotfix="Assignment Manager Service" update="../Setup/Config.Assignment Manager Service.xml" />
+	<XmlFileFix folder_hotfix="Message Router Service" update="../Setup/Config.Message Router Service.xml" />
+	<XmlFileFix folder_hotfix="Permission Manager Service" update="../Setup/Config.Permission Manager Service.xml" />
+	<XmlFileFix folder_hotfix="Engine Service" update="../Setup/Config.Engine Service.xml" />
+  </XmlFileFixes>
+  <ExpandKeywords>
+	<ExpandKeyword name="HDD">
+	  <Value>
+		<string>C:</string>
+		<string>D:</string>
+	  </Value>
+	</ExpandKeyword>
+	<ExpandKeyword name="PROGRAMFILES">
+	  <Value>
+		<string>C:\Program Files\Solutions</string>
+		<string>D:\Program Files\Solutions</string>
+	  </Value>
+	</ExpandKeyword>
+  </ExpandKeywords>
+  <BackupExclusions>
+	<ComponentFilters>
+		<string>Web site.Root</string>
+		<string>Office Integration</string>		
+	</ComponentFilters>
+	<FileFilters>
+	<string>*.log*</string>
+	</FileFilters>
+  </BackupExclusions>
+  <ClearTempFiles doClear="true">
+	<versions>
+	  <string>v1.1.4322</string>
+	</versions>
+  </ClearTempFiles>
+  <BackupsFolder doBackup="true" relative="true">Backup</BackupsFolder>
+  <ComponentsFolder relative="true">..\</ComponentsFolder>
+</HotfixSettings>

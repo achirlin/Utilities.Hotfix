@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XmlConfigurationHotfix xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1" description="Merchant Services Configuration update.">
+  <XMLContentFixes description="-= Web.config update =-" contentXmlFilePath="">
+    <ContentFixNodes>
+      <PrependChildren>
+        <Node description="Validate configuration/appSettings exists" XPathParent="/configuration" XPath="/configuration/appSettings" xmlstring="&lt;appSettings&gt;&#xD;&#xA;&#x9;&lt;add key=&quot;UseInterception&quot; value=&quot;false&quot; /&gt;&#xD;&#xA;&#x9;&lt;add key=&quot;UseInterceptionGraph&quot; value=&quot;false&quot; /&gt;&#xD;&#xA;&#x9;&lt;add key=&quot;InterceptionGraphDirectory&quot; value=&quot;c:\Logs&quot; /&gt;&#xD;&#xA;&#x9;&lt;add key=&quot;InterceptionLogExitOnly&quot; value=&quot;false&quot; /&gt;&#xD;&#xA;&#x9;&lt;add key=&quot;InterceptionThreshold&quot; value=&quot;0&quot; /&gt;&#xD;&#xA;&lt;/appSettings&gt;" />
+      </PrependChildren>
+      <AppendChildren></AppendChildren>
+      <DeleteChildren />
+    </ContentFixNodes>
+    <ContentFixAttributes>
+      <AddAttributes />
+      <DeleteAttributes />
+      <UpdateAttributes>
+        <Attribute description="Turn ON usage of interception." XPath="/configuration/appSettings/add[@key='UseInterception']" attribute_name="value" attribute_value="true" />
+        <Attribute description="Turn ON usage of interception graph." XPath="/configuration/appSettings/add[@key='UseInterceptionGraph']" attribute_name="value" attribute_value="false" />
+        <Attribute description="Set interception graph directory." XPath="/configuration/appSettings/add[@key='InterceptionGraphDirectory']" attribute_name="value" attribute_value="c:\Logs" />
+        <Attribute description="Turn ON logging only of function exits." XPath="/configuration/appSettings/add[@key='InterceptionLogExitOnly']" attribute_name="value" attribute_value="false" />
+        <Attribute description="Set lower time threshold to filter (ms)." XPath="/configuration/appSettings/add[@key='InterceptionThreshold']" attribute_name="value" attribute_value="5" />
+      </UpdateAttributes>
+    </ContentFixAttributes>
+  </XMLContentFixes>
+</XmlConfigurationHotfix>

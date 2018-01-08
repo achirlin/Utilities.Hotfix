@@ -1,0 +1,1 @@
+ilmerge.exe /out:Utilities.Hotfix.XmlCmd.exe ..\bin\debug\Utilities.Hotfix.XmlCmd.exe ..\bin\debug\Utilities.Hotfix.dll

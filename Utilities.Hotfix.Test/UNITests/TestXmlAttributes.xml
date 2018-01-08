@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root attrib="value">
+  <A attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete">
+    <InnerA attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete" />
+  </A>
+  <B attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete">
+    <innerB attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete" />
+  </B>
+  <C attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete">
+    <innerC attrib="value" copyme="valuetocopy" updateme="valuetoupdate" deleteme="valuetodelete" />
+  </C>
+</Root>
